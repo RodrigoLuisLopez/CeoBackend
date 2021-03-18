@@ -55,7 +55,7 @@ class Like extends Model
 
     public function usuario(){
         
-        return $this->hasOne(Usuarios::class,'id','usuario_id');
+        return $this->hasOne(User::class,'id','usuario_id');
         
     }
 

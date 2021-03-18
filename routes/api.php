@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\EstadoAPIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,24 +20,24 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::resource('estados', App\Http\Controllers\API\EstadoAPIController::class);
+Route::resource('estados', 'EstadoAPIController');
 
-Route::resource('privacidads', App\Http\Controllers\API\PrivacidadAPIController::class);
+Route::resource('privacidads', 'PrivacidadAPIController');
 
-Route::resource('giros', App\Http\Controllers\API\GiroAPIController::class);
+Route::resource('giros', 'GiroAPIController');
 
-Route::resource('alcances', App\Http\Controllers\API\AlcanceAPIController::class);
+Route::resource('alcances', 'AlcanceAPIController');
 
-Route::resource('posts', App\Http\Controllers\API\PostAPIController::class);
+Route::resource('posts', 'PostAPIController');
 
-Route::resource('likes', App\Http\Controllers\API\LikeAPIController::class);
+Route::resource('likes', 'LikeAPIController');
 
-Route::resource('seguidors', App\Http\Controllers\API\SeguidorAPIController::class);
+Route::resource('seguidors', 'SeguidorAPIController');
 
-Route::resource('recomendacions', App\Http\Controllers\API\RecomendacionAPIController::class);
+Route::resource('recomendacions', 'RecomendacionAPIController');
 
-Route::resource('usuarios', App\Http\Controllers\API\UsuariosAPIController::class);
+Route::resource('usuarios', 'UsuariosAPIController');
 
-Route::resource('ilustrables', App\Http\Controllers\API\IlustrableAPIController::class);
+Route::resource('ilustrables', 'IlustrableAPIController');
 
-Route::resource('comentables', App\Http\Controllers\API\ComentableAPIController::class);
+Route::resource('comentables', 'ComentableAPIController');

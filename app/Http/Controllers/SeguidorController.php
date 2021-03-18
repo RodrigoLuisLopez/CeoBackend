@@ -9,7 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-use App\Models\Usuarios;
+use App\Models\User;
 use App\Models\Seguidor;
 
 class SeguidorController extends AppBaseController
@@ -45,7 +45,7 @@ class SeguidorController extends AppBaseController
     public function create()
     {
         
-        $usuarios = Usuarios::pluck('nombre','id');
+        $usuarios = User::pluck('name','id');
         return view('seguidors.create', compact('usuarios'));
     }
 
@@ -104,7 +104,7 @@ class SeguidorController extends AppBaseController
             return redirect(route('seguidors.index'));
         }
 
-        $usuarios = Usuarios::pluck('nombre','id');
+        $usuarios = User::pluck('name','id');
         return view('seguidors.edit', compact('seguidor','usuarios'));
     }
 

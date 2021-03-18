@@ -55,13 +55,13 @@ class Seguidor extends Model
 
     public function seguido()
     {
-        return $this->hasOne(Usuarios::class,'id','seguido_id');
+        return $this->hasOne(User::class,'id','seguido_id');
     }
 
     
     public function seguidor()
     {
-        return $this->hasOne(Usuarios::class,'id','seguidor_id');
+        return $this->hasOne(User::class,'id','seguidor_id');
     }
 
 

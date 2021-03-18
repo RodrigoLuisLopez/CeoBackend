@@ -91,7 +91,13 @@ class Post extends Model
 
     public function usuario(){
         
-        return $this->hasOne(Usuarios::class,'id','usuario_id');
+        return $this->hasOne(User::class,'id','usuario_id');
+        
+    }
+    public function usuariobasico(){
+        
+        return $this->hasOne(User::class,'id','usuario_id')
+        ->selectRaw('id, nombre');
         
     }
 

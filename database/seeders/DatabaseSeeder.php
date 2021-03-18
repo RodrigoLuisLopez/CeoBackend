@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EstadosSeeder::class);
         $this->call(GirosSeeder::class);
         $this->call(AlcancesSeeder::class);
-        $this->call(UsuariosSeeder::class);
+        $this->call(UsersSeeder::class);
         $this->call(PostsSeeder::class);
         $this->call(LikesSeeder::class);
         $this->call(SeguirsSeeder::class);

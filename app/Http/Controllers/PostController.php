@@ -9,7 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-use App\Models\Usuarios;
+use App\Models\User;
 use App\Models\Privacidad;
 use App\Models\Estado;
 use App\Models\Post;
@@ -48,7 +48,7 @@ class PostController extends AppBaseController
      */
     public function create()
     {
-        $usuarios = Usuarios::pluck('nombre','id');
+        $usuarios = User::pluck('name','id');
         $privacidads = Privacidad::pluck('nombre','id');
         $estados = Estado::pluck('nombre', 'id');
         return view('posts.create', compact('usuarios','privacidads','estados'));
@@ -113,7 +113,7 @@ class PostController extends AppBaseController
         }
 
         
-        $usuarios = Usuarios::pluck('nombre','id');
+        $usuarios = User::pluck('name','id');
         $privacidads = Privacidad::pluck('nombre','id');
         $estados = Estado::pluck('nombre', 'id');
         return view('posts.edit', compact('post','usuarios','privacidads','estados'));

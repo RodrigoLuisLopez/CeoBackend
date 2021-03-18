@@ -7,13 +7,13 @@
 <!-- Recomendador Id Field -->
 <div class="col-sm-12">
     {!! Form::label('recomendador_id', 'Recomendador Id:') !!}
-    <p>{{ $recomendacion->recomendador_id }}</p>
+    <p>{{ $recomendacion->recomendador->name }}</p>
 </div>
 
 <!-- Recomendado Id Field -->
 <div class="col-sm-12">
     {!! Form::label('recomendado_id', 'Recomendado Id:') !!}
-    <p>{{ $recomendacion->recomendado_id }}</p>
+    <p>{{ $recomendacion->recomendado->name }}</p>
 </div>
 
 <!-- Alcance Id Field -->

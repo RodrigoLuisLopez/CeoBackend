@@ -24,7 +24,7 @@ class CreatePostsTable extends Migration
             $table->integer('estado_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
+            $table->foreign('usuario_id')->references('id')->on('users');
             $table->foreign('privacidad_id')->references('id')->on('privacidads');
             $table->foreign('estado_id')->references('id')->on('estados');
         });

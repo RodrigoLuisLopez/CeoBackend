@@ -62,7 +62,7 @@ class Privacidad extends Model
 
     public function usuarios(){
         
-        return $this->hasMany(Usuarios::class,'privacidad_id','id');
+        return $this->hasMany(User::class,'privacidad_id','id');
         
     }
 

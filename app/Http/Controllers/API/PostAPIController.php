@@ -33,14 +33,12 @@ class PostAPIController extends AppBaseController
      * @return Response
      */
     public function index(Request $request)
-    {
-        $posts = $this->postRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+    {   
+        $posts = Post::orderby('id', 'desc')
+        ->with('usuariobasico')
+        ->paginate(6);
 
-        return $this->sendResponse($posts->toArray(), 'Posts retrieved successfully');
+        return $posts;
     }
 
     /**
@@ -71,13 +69,13 @@ class PostAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Post $post */
-        $post = $this->postRepository->find($id);
+        $post = Post::find($id);
 
         if (empty($post)) {
             return $this->sendError('Post not found');
         }
 
-        return $this->sendResponse($post->toArray(), 'Post retrieved successfully');
+        return $post;
     }
 
     /**

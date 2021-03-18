@@ -34,13 +34,10 @@ class EstadoAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $estados = $this->estadoRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        
+        $estados = Estado::orderby('id', 'desc')->paginate(6);
 
-        return $this->sendResponse($estados->toArray(), 'Estados retrieved successfully');
+        return $estados;
     }
 
     /**
@@ -71,13 +68,13 @@ class EstadoAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Estado $estado */
-        $estado = $this->estadoRepository->find($id);
+        $estado = Estado::find($id);
 
         if (empty($estado)) {
             return $this->sendError('Estado not found');
         }
 
-        return $this->sendResponse($estado->toArray(), 'Estado retrieved successfully');
+        return $estado;
     }
 
     /**

@@ -34,13 +34,9 @@ class AlcanceAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $alcances = $this->alcanceRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        $alcances = Alcance::orderby('id', 'desc')->paginate(5);
 
-        return $this->sendResponse($alcances->toArray(), 'Alcances retrieved successfully');
+        return $alcances;
     }
 
     /**
@@ -71,13 +67,13 @@ class AlcanceAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Alcance $alcance */
-        $alcance = $this->alcanceRepository->find($id);
+        $alcance =Alcance::find($id);
 
         if (empty($alcance)) {
             return $this->sendError('Alcance not found');
         }
 
-        return $this->sendResponse($alcance->toArray(), 'Alcance retrieved successfully');
+        return $alcance;
     }
 
     /**

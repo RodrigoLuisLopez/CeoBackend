@@ -42,7 +42,7 @@ Route::resource('seguidors', App\Http\Controllers\SeguidorController::class)->mi
 
 Route::resource('recomendacions', App\Http\Controllers\RecomendacionController::class)->middleware('auth');
 
-Route::resource('usuarios', App\Http\Controllers\UsuariosController::class)->middleware('auth');
+Route::resource('users', App\Http\Controllers\UserController::class)->middleware('auth');
 
 Route::resource('ilustrables', App\Http\Controllers\IlustrableController::class)->middleware('auth');
 

@@ -10,8 +10,8 @@
         <tbody>
         @foreach($seguidors as $seguidor)
             <tr>
-                <td>{{ $seguidor->seguido->nombre }}</td>
-                <td>{{ $seguidor->seguidor->nombre }}</td>
+                <td>{{ $seguidor->seguido->name }}</td>
+                <td>{{ $seguidor->seguidor->name }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['seguidors.destroy', $seguidor->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

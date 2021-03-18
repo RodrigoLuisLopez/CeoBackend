@@ -10,7 +10,7 @@
         <tbody>
         @foreach($likes as $like)
             <tr>
-                <td>{{ $like->usuario->nombre }}</td>
+                <td>{{ $like->usuario->name }}</td>
                 <td>{{ $like->post->titulo }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['likes.destroy', $like->id], 'method' => 'delete']) !!}

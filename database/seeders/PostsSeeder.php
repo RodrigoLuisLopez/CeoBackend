@@ -18,7 +18,7 @@ class PostsSeeder extends Seeder
             'titulo' => 'primer_post',
             'subtitulo' => 'subtitulo_post',
             'contenido' => 'contenido_post contenido_post contenido_post contenido_postcontenido_post contenido_post contenido_post contenido_post',
-            'usuario_id' => 2,
+            'usuario_id' => 1,
             'privacidad_id' => 1,
             'estado_id' => 1
         ]);
@@ -27,7 +27,7 @@ class PostsSeeder extends Seeder
             'titulo' => 'segundo_post',
             'subtitulo' => 'subtitulo_post',
             'contenido' => 'contenido_post contenido_post contenido_post contenido_postcontenido_post contenido_post contenido_post contenido_post',
-            'usuario_id' => 2,
+            'usuario_id' => 1,
             'privacidad_id' => 1,
             'estado_id' => 1
         ]);
@@ -36,7 +36,7 @@ class PostsSeeder extends Seeder
             'titulo' => 'tercer_post',
             'subtitulo' => 'subtitulo_post',
             'contenido' => 'contenido_post contenido_post contenido_post contenido_postcontenido_post contenido_post contenido_post contenido_post',
-            'usuario_id' => 2,
+            'usuario_id' => 1,
             'privacidad_id' => 1,
             'estado_id' => 1
         ]);
@@ -45,7 +45,7 @@ class PostsSeeder extends Seeder
             'titulo' => 'cuarto_post',
             'subtitulo' => 'subtitulo_post',
             'contenido' => 'contenido_post contenido_post contenido_post contenido_postcontenido_post contenido_post contenido_post contenido_post',
-            'usuario_id' => 3,
+            'usuario_id' => 1,
             'privacidad_id' => 1,
             'estado_id' => 1
         ]);

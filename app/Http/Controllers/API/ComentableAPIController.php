@@ -34,13 +34,10 @@ class ComentableAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $comentables = $this->comentableRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+       
+        $comentables = Comentable::orderby('id', 'desc')->paginate(6);
 
-        return $this->sendResponse($comentables->toArray(), 'Comentables retrieved successfully');
+        return $comentables;
     }
 
     /**
@@ -71,13 +68,13 @@ class ComentableAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Comentable $comentable */
-        $comentable = $this->comentableRepository->find($id);
+        $comentable = Comentable::find($id);
 
         if (empty($comentable)) {
             return $this->sendError('Comentable not found');
         }
 
-        return $this->sendResponse($comentable->toArray(), 'Comentable retrieved successfully');
+        return $comentable;
     }
 
     /**

@@ -34,13 +34,10 @@ class LikeAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $likes = $this->likeRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        
+        $likes = Like::orderby('id', 'desc')->paginate(6);
 
-        return $this->sendResponse($likes->toArray(), 'Likes retrieved successfully');
+        return $likes;
     }
 
     /**
@@ -71,13 +68,13 @@ class LikeAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Like $like */
-        $like = $this->likeRepository->find($id);
+        $like = Like::find($id);
 
         if (empty($like)) {
             return $this->sendError('Like not found');
         }
 
-        return $this->sendResponse($like->toArray(), 'Like retrieved successfully');
+        return $like;
     }
 
     /**

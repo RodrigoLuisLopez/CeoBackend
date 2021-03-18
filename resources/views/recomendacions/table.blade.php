@@ -14,8 +14,8 @@
         @foreach($recomendacions as $recomendacion)
             <tr>
                 <td>{{ $recomendacion->nota }}</td>
-            <td>{{ $recomendacion->recomendador->nombre }}</td>
-            <td>{{ $recomendacion->recomendado->nombre }}</td>
+            <td>{{ $recomendacion->recomendador->name }}</td>
+            <td>{{ $recomendacion->recomendado->name }}</td>
             <td>{{ $recomendacion->alcance->nombre }}</td>
             <td>{{ $recomendacion->giro->nombre }}</td>
                 <td width="120">

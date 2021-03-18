@@ -34,13 +34,10 @@ class RecomendacionAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $recomendacions = $this->recomendacionRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        
+        $recomendacions = Recomendacion::orderby('id', 'desc')->paginate(6);
 
-        return $this->sendResponse($recomendacions->toArray(), 'Recomendacions retrieved successfully');
+        return $recomendacions;
     }
 
     /**
@@ -71,13 +68,13 @@ class RecomendacionAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Recomendacion $recomendacion */
-        $recomendacion = $this->recomendacionRepository->find($id);
+        $recomendacion = Recomendacion::find($id);
 
         if (empty($recomendacion)) {
             return $this->sendError('Recomendacion not found');
         }
 
-        return $this->sendResponse($recomendacion->toArray(), 'Recomendacion retrieved successfully');
+        return $recomendacion;
     }
 
     /**

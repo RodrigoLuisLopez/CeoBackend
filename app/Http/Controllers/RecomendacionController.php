@@ -9,7 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-use App\Models\Usuarios;
+use App\Models\User;
 use App\Models\Giro;
 use App\Models\Alcance;
 use App\Models\Recomendacion;
@@ -46,7 +46,7 @@ class RecomendacionController extends AppBaseController
      */
     public function create()
     {
-        $usuarios = Usuarios::pluck('nombre','id');
+        $usuarios = User::pluck('name','id');
         $giros = Giro::pluck('nombre','id');
         $alcances = Alcance::pluck('nombre','id');
         return view('recomendacions.create', compact('usuarios','giros','alcances'));
@@ -107,7 +107,7 @@ class RecomendacionController extends AppBaseController
             return redirect(route('recomendacions.index'));
         }
 
-        $usuarios = Usuarios::pluck('nombre','id');
+        $usuarios = User::pluck('name','id');
         $giros = Giro::pluck('nombre','id');
         $alcances = Alcance::pluck('nombre','id');
         return view('recomendacions.edit', compact('recomendacion','usuarios','giros','alcances'));

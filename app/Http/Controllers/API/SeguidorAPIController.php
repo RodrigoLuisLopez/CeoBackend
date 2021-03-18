@@ -34,13 +34,10 @@ class SeguidorAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $seguidors = $this->seguidorRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        
+        $seguidors = Seguidor::orderby('id', 'desc')->paginate(6);
 
-        return $this->sendResponse($seguidors->toArray(), 'Seguidors retrieved successfully');
+        return $seguidors;
     }
 
     /**
@@ -71,13 +68,13 @@ class SeguidorAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Seguidor $seguidor */
-        $seguidor = $this->seguidorRepository->find($id);
+        $seguidor = Seguidor::find($id);
 
         if (empty($seguidor)) {
             return $this->sendError('Seguidor not found');
         }
 
-        return $this->sendResponse($seguidor->toArray(), 'Seguidor retrieved successfully');
+        return $seguidor;
     }
 
     /**

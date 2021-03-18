@@ -24,7 +24,7 @@
 
                     <td>{{ $post->subtitulo }}</td>
                     <td>{{ substr($post->contenido, 0, 13) }}...</td>
-                    <td>{{ $post->usuario->nombre }}</td>
+                    <td>{{ $post->usuario->name }}</td>
                     <td>{{ $post->privacidad->nombre }}</td>
                     <td>{{ $post->estado->nombre }}</td>
                     <td width="120">

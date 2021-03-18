@@ -20,8 +20,8 @@ class CreateSeguidorsTable extends Migration
             $table->integer('seguidor_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('seguido_id')->references('id')->on('usuarios');
-            $table->foreign('seguidor_id')->references('id')->on('usuarios');
+            $table->foreign('seguido_id')->references('id')->on('users');
+            $table->foreign('seguidor_id')->references('id')->on('users');
         });
     }
 

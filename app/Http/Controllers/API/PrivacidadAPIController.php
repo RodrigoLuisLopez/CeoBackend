@@ -33,14 +33,10 @@ class PrivacidadAPIController extends AppBaseController
      * @return Response
      */
     public function index(Request $request)
-    {
-        $privacidads = $this->privacidadRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+    {        
+        $privacidads = Privacidad::orderby('id', 'desc')->paginate(6);
 
-        return $this->sendResponse($privacidads->toArray(), 'Privacidads retrieved successfully');
+        return $privacidads;
     }
 
     /**
@@ -71,13 +67,13 @@ class PrivacidadAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Privacidad $privacidad */
-        $privacidad = $this->privacidadRepository->find($id);
+        $privacidad = Privacidad::find($id);
 
         if (empty($privacidad)) {
             return $this->sendError('Privacidad not found');
         }
 
-        return $this->sendResponse($privacidad->toArray(), 'Privacidad retrieved successfully');
+        return $privacidad;
     }
 
     /**

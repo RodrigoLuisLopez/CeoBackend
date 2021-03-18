@@ -34,13 +34,10 @@ class GiroAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $giros = $this->giroRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        
+        $giros = Giro::orderby('id', 'desc')->paginate(6);
 
-        return $this->sendResponse($giros->toArray(), 'Giros retrieved successfully');
+        return $giros;
     }
 
     /**
@@ -71,13 +68,13 @@ class GiroAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Giro $giro */
-        $giro = $this->giroRepository->find($id);
+        $giro = Giro::find($id);
 
         if (empty($giro)) {
             return $this->sendError('Giro not found');
         }
 
-        return $this->sendResponse($giro->toArray(), 'Giro retrieved successfully');
+        return $giro;
     }
 
     /**

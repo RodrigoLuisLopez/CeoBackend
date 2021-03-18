@@ -81,13 +81,13 @@ class Recomendacion extends Model
 
     public function recomendado()
     {
-        return $this->hasOne(Usuarios::class,'id','recomendado_id');
+        return $this->hasOne(User::class,'id','recomendado_id');
     }
 
     
     public function recomendador()
     {
-        return $this->hasOne(Usuarios::class,'id','recomendador_id');
+        return $this->hasOne(User::class,'id','recomendador_id');
     }
     
 }

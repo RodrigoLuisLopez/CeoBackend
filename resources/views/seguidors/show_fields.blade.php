@@ -1,13 +1,13 @@
 <!-- Seguido Id Field -->
 <div class="col-sm-12">
     {!! Form::label('seguido_id', 'Seguido Id:') !!}
-    <p>{{ $seguidor->seguido_id }}</p>
+    <p>{{ $seguidor->seguido->name }}</p>
 </div>
 
 <!-- Seguidor Id Field -->
 <div class="col-sm-12">
     {!! Form::label('seguidor_id', 'Seguidor Id:') !!}
-    <p>{{ $seguidor->seguidor_id }}</p>
+    <p>{{ $seguidor->seguidor->name }}</p>
 </div>
 
 <!-- Created At Field -->

@@ -9,7 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-use App\Models\Usuarios;
+use App\Models\User;
 use App\Models\Post;
 use App\Models\Like;
 
@@ -45,7 +45,7 @@ class LikeController extends AppBaseController
      */
     public function create()
     {
-        $usuarios = Usuarios::pluck('nombre','id');
+        $usuarios = User::pluck('name','id');
         $posts = Post::pluck('titulo','id');
         return view('likes.create', compact('usuarios', 'posts'));
     }
@@ -105,7 +105,7 @@ class LikeController extends AppBaseController
             return redirect(route('likes.index'));
         }
 
-        $usuarios = Usuarios::pluck('nombre','id');
+        $usuarios = User::pluck('name','id');
         $posts = Post::pluck('titulo','id');
 
         return view('likes.edit', compact('like', 'usuarios', 'posts'));

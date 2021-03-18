@@ -1,7 +1,7 @@
 <!-- User Id Field -->
 <div class="col-sm-12">
     {!! Form::label('user_id', 'User Id:') !!}
-    <p>{{ $like->user_id }}</p>
+    <p>{{ $like->usuario->name }}</p>
 </div>
 
 <!-- Post Id Field -->

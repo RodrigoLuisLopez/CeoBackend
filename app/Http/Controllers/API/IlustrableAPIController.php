@@ -34,13 +34,10 @@ class IlustrableAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $ilustrables = $this->ilustrableRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        
+        $ilustrables = Ilustrable::orderby('id', 'desc')->paginate(6);
 
-        return $this->sendResponse($ilustrables->toArray(), 'Ilustrables retrieved successfully');
+        return $ilustrables;
     }
 
     /**
@@ -71,13 +68,13 @@ class IlustrableAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Ilustrable $ilustrable */
-        $ilustrable = $this->ilustrableRepository->find($id);
+        $ilustrable = Ilustrable::find($id);
 
         if (empty($ilustrable)) {
             return $this->sendError('Ilustrable not found');
         }
 
-        return $this->sendResponse($ilustrable->toArray(), 'Ilustrable retrieved successfully');
+        return $ilustrable;
     }
 
     /**

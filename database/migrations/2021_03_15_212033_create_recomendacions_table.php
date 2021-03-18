@@ -23,8 +23,8 @@ class CreateRecomendacionsTable extends Migration
             $table->integer('giro_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('recomendador_id')->references('id')->on('usuarios');
-            $table->foreign('recomendado_id')->references('id')->on('usuarios');
+            $table->foreign('recomendador_id')->references('id')->on('users');
+            $table->foreign('recomendado_id')->references('id')->on('users');
             $table->foreign('alcance_id')->references('id')->on('alcances');
             $table->foreign('giro_id')->references('id')->on('giros');
         });
