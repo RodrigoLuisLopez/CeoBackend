@@ -5,6 +5,7 @@
                 <th>Comentable Id</th>
         <th>Comentable Type</th>
         <th>Comentario</th>
+        <th>Usuario</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -14,6 +15,7 @@
                 <td>{{ $comentable->comentable_id }}</td>
             <td>{{ $comentable->comentable_type }}</td>
             <td>{{ $comentable->comentario }}</td>
+            <td>{{ $comentable->usuario->name }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['comentables.destroy', $comentable->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

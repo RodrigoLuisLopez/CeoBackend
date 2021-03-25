@@ -7,6 +7,7 @@
 <!-- Ilustrable Type Field -->
     {!! Form::hidden('back', Request::get('back'), ['class' => 'form-control']) !!}
 
+    {!! Form::hidden('user_id', Auth::user()->id, null, ['class' => 'form-control']) !!}
 
 <!-- Comentario Field -->
 <div class="form-group col-sm-6">

@@ -47,3 +47,13 @@ Route::resource('users', App\Http\Controllers\UserController::class)->middleware
 Route::resource('ilustrables', App\Http\Controllers\IlustrableController::class)->middleware('auth');
 
 Route::resource('comentables', App\Http\Controllers\ComentableController::class)->middleware('auth');
+
+Route::resource('blog', App\Http\Controllers\PostClienteController::class)->middleware('auth');
+
+Route::resource('inicio', App\Http\Controllers\PaginaController::class);
+
+//Route::resource('home', App\Http\Controllers\Controller::class)->middleware(['auth', 'estadoactivo']);
+
+
+
+

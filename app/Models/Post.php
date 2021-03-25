@@ -5,6 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 
 /**
  * Class Post
@@ -97,7 +98,7 @@ class Post extends Model
     public function usuariobasico(){
         
         return $this->hasOne(User::class,'id','usuario_id')
-        ->selectRaw('id, nombre');
+        ->selectRaw('id, name, email');
         
     }
 
@@ -111,5 +112,14 @@ class Post extends Model
     {
         return $this->morphOne(Ilustrable::class,'Ilustrable');
     }
-    
+    public function getCreatedAtAttribute($value){
+        setlocale(LC_ALL,'es_ES.UTF-8');
+        setlocale(LC_TIME,'es_ES');
+        Carbon::setLocale('es_ES');
+        $fecha = Carbon::parse($value);
+
+        return $fecha->formatLocalized('%d de %B de %Y');
+    }
+
+
 }

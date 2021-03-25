@@ -5,6 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 
 /**
  * Class Comentable
@@ -31,7 +32,8 @@ class Comentable extends Model
     public $fillable = [
         'comentable_id',
         'comentable_type',
-        'comentario'
+        'comentario',
+        'user_id'
     ];
 
     /**
@@ -43,7 +45,8 @@ class Comentable extends Model
         'id' => 'integer',
         'comentable_id' => 'integer',
         'comentable_type' => 'string',
-        'comentario' => 'string'
+        'comentario' => 'string',
+        'user_id' => 'integer'
     ];
 
     /**
@@ -62,4 +65,10 @@ class Comentable extends Model
         return $this->morphTo();
     }   
     
+
+    public function usuario(){
+        
+        return $this->hasOne(User::class,'id','user_id');
+        
+    }
 }

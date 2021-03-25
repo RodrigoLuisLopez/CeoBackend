@@ -36,7 +36,9 @@ class PostAPIController extends AppBaseController
     {   
         $posts = Post::orderby('id', 'desc')
         ->with('usuariobasico')
-        ->paginate(6);
+        ->with('estado')
+        ->with('privacidad')
+        ->paginate(10);
 
         return $posts;
     }
@@ -69,7 +71,9 @@ class PostAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Post $post */
-        $post = Post::find($id);
+        $post = Post::with('usuariobasico')
+        ->with('estado')
+        ->with('privacidad')->find($id); 
 
         if (empty($post)) {
             return $this->sendError('Post not found');

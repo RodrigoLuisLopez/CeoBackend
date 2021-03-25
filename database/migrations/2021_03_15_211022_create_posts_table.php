@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('subtitulo');
-            $table->string('contenido', 2000);
+            $table->string('contenido', 5000);
             $table->integer('usuario_id')->unsigned();
             $table->integer('privacidad_id')->unsigned();
             $table->integer('estado_id')->unsigned();

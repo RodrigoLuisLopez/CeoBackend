@@ -35,7 +35,7 @@ class EstadoAPIController extends AppBaseController
     public function index(Request $request)
     {
         
-        $estados = Estado::orderby('id', 'desc')->paginate(6);
+        $estados = Estado::orderby('id', 'desc')->paginate(5);
 
         return $estados;
     }

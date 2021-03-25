@@ -34,7 +34,7 @@ class AlcanceAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $alcances = Alcance::orderby('id', 'desc')->paginate(5);
+        $alcances = Alcance::orderby('id', 'desc')->paginate(10);
 
         return $alcances;
     }

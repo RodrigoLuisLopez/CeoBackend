@@ -65,7 +65,7 @@ class LikeController extends AppBaseController
 
         Flash::success('Like saved successfully.');
 
-        return redirect(route('likes.index'));
+        return redirect(url($request->back));
     }
 
     /**
